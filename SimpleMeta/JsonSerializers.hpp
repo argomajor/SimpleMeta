@@ -28,11 +28,14 @@ public:
 
   virtual bool BeginObject() override;
   virtual bool BeginObject(PolymorphicInfo& info) override;
+  virtual bool BeginMembers(size_t& count) override;
   virtual bool BeginMember(const std::string& name) override;
+  virtual bool BeginMember(size_t index, std::string& name) override;
   virtual bool BeginArray(size_t& count) override;
   virtual bool BeginArrayItem(size_t index) override;
   virtual bool EndObject() override;
   virtual bool EndMember() override;
+  virtual bool EndMembers() override;
   virtual bool EndArray() override;
   virtual bool EndArrayItem() override;
   
@@ -75,10 +78,13 @@ public:
 
   virtual bool BeginObject() override;
   virtual bool BeginObject(PolymorphicInfo& info) override;
+  virtual bool BeginMembers(size_t& count) override;
   virtual bool BeginMember(const std::string& name) override;
+  virtual bool BeginMember(size_t index, std::string& name) override;
   virtual bool BeginArray(size_t& count) override;
   virtual bool BeginArrayItem(size_t index) override;
   virtual bool EndObject() override;
+  virtual bool EndMembers() override;
   virtual bool EndMember() override;
   virtual bool EndArray() override;
   virtual bool EndArrayItem() override;

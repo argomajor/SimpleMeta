@@ -18,6 +18,8 @@ struct BinarySaver : public Serializer
   virtual bool SerializePrimitive(const BoundType& boundType, char* data) override;
   virtual bool SerializePrimitive(const BoundType& boundType, std::string& data) override;
 
+  virtual bool BeginMembers(size_t& count) override;
+  virtual bool BeginMember(size_t index, std::string& name) override;
   virtual bool BeginObject(PolymorphicInfo& info) override;
   virtual bool BeginArray(size_t& count) override;
 
@@ -42,6 +44,8 @@ struct BinaryLoader : public Serializer
   virtual bool SerializePrimitive(const BoundType& boundType, char* data) override;
   virtual bool SerializePrimitive(const BoundType& boundType, std::string& data) override;
 
+  virtual bool BeginMembers(size_t& count) override;
+  virtual bool BeginMember(size_t index, std::string& name) override;
   virtual bool BeginObject() override;
   virtual bool BeginObject(PolymorphicInfo& info) override;
   virtual bool BeginArray(size_t& count) override;
